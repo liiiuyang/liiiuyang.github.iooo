@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- 生产环境版本，优化了尺寸和速度 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <title>济南公积金计算器</title>
 </head>
 
@@ -19,8 +20,7 @@
         <h5>方式二</h5>
         <input type="number" v-model.number="money" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')"
             placeholder='公积金月缴存基数'>
-        <input type="number" v-model.number="year" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')" 
-            placeholder='贷款年限'>
+        <input type="number" v-model.number="year" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')" placeholder='贷款年限'>
         <select v-model="time">
             <option value="0">连续缴纳小于半年</option>
             <option value="0.3">连续缴纳半年到一年</option>
@@ -31,6 +31,10 @@
         </select>
         <button @click="go2">计算</button>
         <p>单人可贷款额度：{{total2}}元</p><br>
+        <p>(以上结果仅供参考)</p>
+        <hr>
+        <a href="http://gjj.jinan.gov.cn/col/col11482/index.html">济南公积金官网</a>
+        <br>
         <img src="info.png" width="80%" height="80%" alt="">
     </div>
 </body>
